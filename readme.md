@@ -1,0 +1,1 @@
+Projetos de Algoritmos básicos produzidos durante o curso
