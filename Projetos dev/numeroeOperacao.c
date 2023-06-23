@@ -1,78 +1,62 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*Crie um algoritmo que pergunte ao usuario com qual poligono ele deve trabalhar. 
-O programa deve calcular a area do poligono selecionado. 
-Para o calculo correto da area o programa deve pedir ao usuario as entradas correspondentes ao poligono selecionado.*/
+
+/* Numero e função */
 
 int main() {
-	char T, C,R, Q, opcao, continua;
-	float base, altura, area, pi, raio, comprimento, lado;
+	float resultado,num1, num2;
+	char opcao, continua;
+
+do{	
+	printf("\n\nDigite o primeiro numero: ");
+	scanf("%f", &num1);
 	
-	do{
-		printf("\n\nCom qual poligono iremos trabalhar: \n");
-	printf("[T]riangulo\n");
-	printf("[C]irculo\n");
-	printf("[R]etangulo\n");
-	printf("[Q]uadrado\n");
+	printf("Digite o segundo numero: ");
+	scanf("%f", &num2);
 	
+	printf("Escolha uma das opcoes abaixo: \n");
+	printf("[a] adicao\n");
+	printf("[s] subtracao\n");
+	printf("[m] multiplicacao\n");
+	printf("[d] divisao\n");
+	
+	printf("Informe a operacao desejada: ");
 	scanf(" %c",&opcao);
-	
-	pi=3.14;
+	/*Sempre que for %c no scanf, dar um espaço entre o aspas e o %c*/
+
 	
 	switch(opcao){
-		case'T':
-		case't':
-			printf("Digite o valor da base do triangulo: \n");
-			scanf("%f", &base);
-			printf("Digite a altura do triangulo: \n");
-			scanf("%f", &altura);
-			
-			area=base*altura/2;
-			
-			printf("O valor da area eh: %.1f", area);
+		case 'a':
+		case 'A':
+			resultado = num1 + num2;
+			printf("A soma dos numeros informados eh igual a: %.2f", resultado);
 			break;
-		
-		case 'C':
-		case 'c':
-			printf("Digite o valor do raio do circulo: \n");
-			scanf("%f", &raio);
-			
-			area=pi*pow(raio,2);
-			
-			printf("O valor da area eh: %.2f", area);
+		case 's':
+		case 'S':
+			resultado = num1 - num2;
+			printf("A subtracao dos numeros informados eh igual a: %.2f", resultado);
 			break;
-		
-		case 'R':
-		case 'r':
-			printf("Digite o comprimento do retangulo : \n");
-			scanf("%f", &comprimento);
-			printf("Digite a altura do retangulo: \n");
-			scanf("%f", &altura);
-			
-			area=comprimento*altura;
-			
-			printf("O valor da area do retangulo eh: %.2f", area);
+		case 'm':
+		case 'M':
+			resultado = num1 * num2;
+			printf("A multiplicacao dos numeros informados eh igual a: %.2f", resultado);
+		 	break;
+		case 'd':
+		case 'D':
+			if(num2 == 0){
+				printf("Nao foi possivel completar a divisao");
+			}else{
+				
+			resultado = num1 / num2;
+			printf("A divisao dos numeros informados eh igual a: %.2f", resultado);
+			}
 			break;
-			
-		case 'Q':
-		case 'q':
-			printf("Digite o valor do lado do quadrado: \n");
-			scanf("%f", &lado);
-			
-			area=lado*lado;
-			
-			printf("O valor da area do quadrado eh: %.1f", area);
-			break;
-			
-			
-			
 		default:
-			printf("Opcao invalida!");
-		
+			printf("Operacao invalida");
 	}
 	printf("\n\nContinua?\n");
 	printf("[S]im\n");
-	printf("[N]ao\n\n");
+	printf("[N]ao\n ");
 	continua = getche();
-	}while((continua == 's') || (continua == 'S'));
+	}while((continua=='s')||(continua=='S'));
 }
